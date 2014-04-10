@@ -18,9 +18,11 @@ void setup(){
 void loop(){
   readVal1 = analogRead(sensor1);    // read voltage from sensor1
   readVal2 = analogRead(sensor2);    // read voltage from sensor2
-  
-  //Serial.println(readVal1);
-  
+
+  /* Voltage in readVal values are not actual voltages, but scaled voltages.
+     The Arduino reads voltages from 0V to 5V and scales them to an integer
+     value of 0 to 1024. The readVal values store these scaled integers. */
+     
   if(readVal1 >= light){    // check if light
     digitalWrite(LED1, LOW);    // if light, turn off led
   }else{                      
